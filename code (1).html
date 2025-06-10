@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ST CEL Shop</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      text-align: center;
+      padding: 20px;
+      background-color: #000;
+    }
+    .header h1 {
+      margin: 0;
+      color: #0ff;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .product {
+      background-color: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      width: 250px;
+      text-align: center;
+      padding: 10px;
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+    .product p {
+      margin: 5px 0;
+    }
+    .order-btn {
+      background-color: #0ff;
+      color: #000;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .order-btn:hover {
+        background-color: #fff;
+        transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>ST CEL Shop</h1>
+    <p>ঠিকানা: জলিল টাওয়ার ৩য় তলা, ৩১৩, খুলনা | WhatsApp: 01747428543</p>
+    <p>Facebook: ST CEL Mobile accessories</p>
+  </div>
+  <div class="products">
+    <div class="product">
+      <img src="https://via.placeholder.com/250x180?text=Apple+A9+Pro" alt="Apple A9 Pro">
+      <h3>Apple A9 Pro</h3>
+      <p>দাম: (আপনি লিখবেন)</p>
+      <button class="order-btn">WhatsApp-এ অর্ডার করুন</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x180?text=E9+Pro" alt="E9 Pro">
+      <h3>E9 Pro</h3>
+      <p>দাম: (আপনি লিখবেন)</p>
+      <button class="order-btn">WhatsApp-এ অর্ডার করুন</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x180?text=M10+Earbuds" alt="M10">
+      <h3>M10 Earbuds</h3>
+      <p>দাম: (আপনি লিখবেন)</p>
+      <button class="order-btn">WhatsApp-এ অর্ডার করুন</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x180?text=Havit+Keyboard" alt="Havit Keyboard">
+      <h3>Havit Keyboard</h3>
+      <p>দাম: (আপনি লিখবেন)</p>
+      <button class="order-btn">WhatsApp-এ অর্ডার করুন</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x180?text=Gaming+Mouse" alt="Gaming Mouse">
+      <h3>Gaming Mouse (RGB)</h3>
+      <p>দাম: (আপনি লিখবেন)</p>
+      <button class="order-btn">WhatsApp-এ অর্ডার করুন</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x180?text=Web+Camera" alt="Web Camera">
+      <h3>Web Camera</h3>
+      <p>দাম: (আপনি লিখবেন)</p>
+      <button class="order-btn">WhatsApp-এ অর্ডার করুন</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x180?text=Headphone" alt="Headphone">
+      <h3>Headphone</h3>
+      <p>দাম: (আপনি লিখবেন)</p>
+      <button class="order-btn">WhatsApp-এ অর্ডার করুন</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x180?text=Bluetooth+Speaker" alt="Bluetooth Speaker">
+      <h3>Bluetooth Speaker</h3>
+      <p>দাম: (আপনি লিখবেন)</p>
+      <button class="order-btn">WhatsApp-এ অর্ডার করুন</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/250x180?text=AirPods+Pro" alt="AirPods Pro">
+      <h3>Apple AirPods Pro</h3>
+      <p>দাম: (আপনি লিখবেন)</p>
+      <button class="order-btn">WhatsApp-এ অর্ডার করুন</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // The WhatsApp number for the shop (with country code, without +)
+      const whatsappNumber = '8801747428543';
+
+      // Get all the order buttons
+      const orderButtons = document.querySelectorAll('.order-btn');
+
+      // Add a click event listener to each button
+      orderButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Find the parent .product container
+          const productCard = this.closest('.product');
+          
+          // Get the product name from the h3 tag inside the container
+          const productName = productCard.querySelector('h3').innerText;
+          
+          // Create the pre-filled message
+          const message = `আসসালামু আলাইকুম, আমি '${productName}' পণ্যটি অর্ডার করতে চাই।`;
+          
+          // Encode the message for use in a URL
+          const encodedMessage = encodeURIComponent(message);
+          
+          // Construct the WhatsApp URL
+          const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+          
+          // Open the WhatsApp chat in a new tab
+          window.open(whatsappURL, '_blank');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
